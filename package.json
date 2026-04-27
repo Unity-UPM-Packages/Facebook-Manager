@@ -17,5 +17,8 @@
     "name": "Unity-UPM-Packages",
     "url": "https://github.com/Unity-UPM-Packages"
   },
-  "dependencies": {}
+  "dependencies": {
+    "com.thelegends.facebook.sdk": "18.0.0",
+    "com.thelegends.unity.patterns": "1.0.2"
+  }
 }
