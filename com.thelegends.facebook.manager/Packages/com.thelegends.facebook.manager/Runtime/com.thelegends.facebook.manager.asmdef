@@ -1,0 +1,14 @@
+{
+    "name": "com.thelegends.facebook.manager",
+    "rootNamespace": "com.thelegends.facebook.manager",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
