@@ -1,7 +1,10 @@
 {
     "name": "com.thelegends.facebook.manager",
     "rootNamespace": "com.thelegends.facebook.manager",
-    "references": [],
+    "references": [
+        "GUID:b9892e19a741c2c4690060e4a6416aca",
+        "GUID:7c06e189adcb3704398f07236903525c"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
