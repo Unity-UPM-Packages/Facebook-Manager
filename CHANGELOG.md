@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/Unity-UPM-Packages/Facebook-Manager/compare/v1.0.0...v1.0.1) (2026-04-28)
+
+
+### Bug Fixes
+
+* improve BuildProcess ([f77219f](https://github.com/Unity-UPM-Packages/Facebook-Manager/commit/f77219fc2e94115c0cdbac38928fdd996e744330))
+
 # 1.0.0 (2026-04-28)
 
 
