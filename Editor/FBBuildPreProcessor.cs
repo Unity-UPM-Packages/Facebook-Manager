@@ -12,49 +12,24 @@ public class FBBuildPreProcessor : IPreprocessBuildWithReport
     {
         Debug.Log("Linking FB plugins");
 
-        const string packagesFolderPath = "Packages/com.thelegends.facebook.sdk";
         const string packageLinkXmlPath = "Packages/com.thelegends.facebook.sdk/Runtime/FacebookSDK/link.xml";
 
-        const string assetsFolderPath = "Assets/Plugins/FacebookSDK";
-        const string destLinkXmlPath = "Assets/Plugins/FacebookSDK/link.xml";
+        const string destLinkXmlPath = "Assets/FacebookSDK/link.xml";
 
-        if (AssetDatabase.IsValidFolder(assetsFolderPath) && File.Exists(destLinkXmlPath))
+        if (!AssetDatabase.IsValidFolder("Assets/FacebookSDK"))
         {
-            Debug.Log("FB link file exists in Assets/Plugins/FacebookSDK folder.");
-            return;
+            AssetDatabase.CreateFolder("Assets", "FacebookSDK");
         }
 
-        if (!AssetDatabase.IsValidFolder(packagesFolderPath))
+        try
         {
-            StopBuildWithMessage("FB packages folder not found.");
-            return;
+            File.Copy(packageLinkXmlPath, destLinkXmlPath, overwrite: true);
+            AssetDatabase.ImportAsset(destLinkXmlPath, ImportAssetOptions.ForceUpdate);
+            Debug.Log("Copied & Overwritten FB link file from Packages to Assets/FacebookSDK folder.");
         }
-
-        if (!File.Exists(packageLinkXmlPath))
+        catch (System.Exception e)
         {
-            StopBuildWithMessage($"FB link file not found at {packageLinkXmlPath}.");
-            return;
-        }
-
-        if (!AssetDatabase.IsValidFolder("Assets/Plugins"))
-        {
-            AssetDatabase.CreateFolder("Assets", "Plugins");
-        }
-
-        if (!AssetDatabase.IsValidFolder(assetsFolderPath))
-        {
-            AssetDatabase.CreateFolder("Assets/Plugins", "FacebookSDK");
-        }
-
-        // Thực hiện copy
-        bool success = AssetDatabase.CopyAsset(packageLinkXmlPath, destLinkXmlPath);
-        if (success)
-        {
-            Debug.Log("Copied FB link file from Packages to Assets/Plugins/FacebookSDK folder.");
-        }
-        else
-        {
-            StopBuildWithMessage("Failed to copy link.xml");
+            StopBuildWithMessage("Failed to copy link.xml: " + e.Message);
         }
     }
 
