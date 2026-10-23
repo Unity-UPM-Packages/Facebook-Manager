@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/Unity-UPM-Packages/Facebook-Manager/compare/v1.0.1...v1.0.2) (2026-10-23)
+
+
+### Bug Fixes
+
+* improve OnApplicationPause ([7d19bdb](https://github.com/Unity-UPM-Packages/Facebook-Manager/commit/7d19bdb0b68512b7f2e1d0cf124cdf6af42c7273))
+
 ## [1.0.1](https://github.com/Unity-UPM-Packages/Facebook-Manager/compare/v1.0.0...v1.0.1) (2026-04-28)
 
 
