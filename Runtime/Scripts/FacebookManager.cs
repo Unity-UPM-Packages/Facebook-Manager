@@ -22,9 +22,10 @@ namespace TheLegends.Base.Facebook
         void OnApplicationPause(bool pauseStatus)
         {
 #if USE_FACEBOOK
-            if (!pauseStatus)
+            // Only re-log activation on resume; FB.Init is left to DoInit so it runs after consent
+            if (!pauseStatus && FB.IsInitialized)
             {
-                InitFacebookSDK();
+                FB.ActivateApp();
             }
 #endif
         }
