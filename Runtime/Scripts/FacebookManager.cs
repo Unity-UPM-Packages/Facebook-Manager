@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using Facebook.Unity;
+using Facebook.Unity.Settings;
 using TheLegends.Base.UnitySingleton;
 using UnityEngine;
 
@@ -38,6 +39,15 @@ namespace TheLegends.Base.Facebook
 #if USE_FACEBOOK
             if (Status == FacebookStatus.Initializing || Status == FacebookStatus.Initialized)
             {
+                yield break;
+            }
+
+            // FB.Init fails on a later frame (outside any try/catch) and never calls back
+            // when the app id or client token is missing, so validate the config up front
+            if (!FacebookSettings.IsValidAppId || string.IsNullOrEmpty(FacebookSettings.ClientToken))
+            {
+                LogError("Invalid Facebook App ID or Client Token. Set them in Facebook > Edit Settings");
+                Status = FacebookStatus.Failed;
                 yield break;
             }
 
