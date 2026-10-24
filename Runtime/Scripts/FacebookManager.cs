@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
@@ -11,8 +12,10 @@ namespace TheLegends.Base.Facebook
     {
         public enum FacebookStatus
         {
+            None,
             Initializing,
             Initialized,
+            Failed,
         }
 
         public FacebookStatus Status { get; private set; }
@@ -33,14 +36,22 @@ namespace TheLegends.Base.Facebook
         public IEnumerator DoInit()
         {
 #if USE_FACEBOOK
-            if (Status == FacebookStatus.Initializing)
+            if (Status == FacebookStatus.Initializing || Status == FacebookStatus.Initialized)
             {
                 yield break;
             }
 
             Status = FacebookStatus.Initializing;
 
-            InitFacebookSDK();
+            try
+            {
+                InitFacebookSDK();
+            }
+            catch (Exception e)
+            {
+                LogError("FACEBOOK SDK INIT EXCEPTION: " + e);
+                Status = FacebookStatus.Failed;
+            }
 
             while (Status == FacebookStatus.Initializing)
             {
