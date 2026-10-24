@@ -3,6 +3,15 @@
 
 ### Bug Fixes
 
+* improve init ([4463bd2](https://github.com/Unity-UPM-Packages/Facebook-Manager/commit/4463bd2f90534a90eae61dcaaa92a7ce4a2838c7))
+* improve init ([f9c19b5](https://github.com/Unity-UPM-Packages/Facebook-Manager/commit/f9c19b5a24f98d31f7d5a8fac4465a9fa26bcb31))
+* improve OnApplicationPause ([7d19bdb](https://github.com/Unity-UPM-Packages/Facebook-Manager/commit/7d19bdb0b68512b7f2e1d0cf124cdf6af42c7273))
+
+## [1.0.2](https://github.com/Unity-UPM-Packages/Facebook-Manager/compare/v1.0.1...v1.0.2) (2026-10-24)
+
+
+### Bug Fixes
+
 * improve init ([f9c19b5](https://github.com/Unity-UPM-Packages/Facebook-Manager/commit/f9c19b5a24f98d31f7d5a8fac4465a9fa26bcb31))
 * improve OnApplicationPause ([7d19bdb](https://github.com/Unity-UPM-Packages/Facebook-Manager/commit/7d19bdb0b68512b7f2e1d0cf124cdf6af42c7273))
 
